@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sohaib ❤️ Eshmal | Hamara Khoobsurat Safar</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    color: #fff;
+    background:
+        radial-gradient(ellipse at 15% 15%, #51418e 0%, transparent 38%),
+        radial-gradient(ellipse at 85% 75%, #8e3f79 0%, transparent 40%),
+        linear-gradient(135deg, #100e2b, #25204c, #51284e);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* Moving background hearts */
+
+#heartLayer {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    bottom: -60px;
+    color: rgba(255, 190, 220, .75);
+    text-shadow: 0 0 15px #ff8fca;
+    animation: rise linear forwards;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(.7);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-115vh) rotate(360deg) scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* Header */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 18px 15px;
+    text-align: center;
+    background: rgba(13, 10, 37, .88);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 210, 230, .25);
+}
+
+.logo {
+    font-size: 29px;
+    font-weight: bold;
+    color: #ffe0ed;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #ff9fca;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 210, 230, .35);
+    border-radius: 30px;
+    background: rgba(255,255,255,.07);
+    transition: .3s;
+}
+
+nav a:hover {
+    background: #e9a5c7;
+    color: #241332;
+    transform: translateY(-3px);
+}
+
+/* Common sections */
+
+section {
+    position: relative;
+    z-index: 1;
+    scroll-margin-top: 150px;
+}
+
+.hero {
+    min-height: 690px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 65px 20px;
+}
+
+.tagline {
+    color: #f6c8df;
+    letter-spacing: 4px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 90px);
+    margin: 25px 0 12px;
+    color: #fff1f8;
+    text-shadow: 0 0 30px rgba(255, 151, 205, .5);
+}
+
+.hero h1 span {
+    color: #f2a6ca;
+}
+
+.hero h2 {
+    font-size: 24px;
+    color: #e9c9ed;
+}
+
+.hero p {
+    max-width: 760px;
+    font-size: 18px;
+    line-height: 2;
+    margin: 25px auto;
+    color: #f5eaf5;
+}
+
+.hero-image {
+    width: min(330px, 85%);
+    height: 350px;
+    object-fit: cover;
+    border: 7px solid rgba(255, 220, 240, .65);
+    border-radius: 25px;
+    box-shadow: 0 15px 50px rgba(0,0,0,.45);
+    margin: 20px 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 27px;
+    margin-top: 15px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #291334;
+    background: linear-gradient(135deg, #ffe2ed, #e6a5cb);
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(0,0,0,.25);
+    transition: .3s;
+}
+
+.button:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(255,150,205,.3);
+}
+
+/* Glass cards */
+
+.card {
+    width: 88%;
+    max-width: 1050px;
+    margin: 55px auto;
+    padding: 45px 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 215, 235, .3);
+    border-radius: 28px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.12),
+        rgba(255,255,255,.035)
+    );
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 45px rgba(0,0,0,.25);
+}
+
+.card h2 {
+    color: #ffd6e9;
+    font-size: 34px;
+    margin-bottom: 25px;
+}
+
+.card p {
+    max-width: 850px;
+    margin: 17px auto;
+    font-size: 18px;
+    line-height: 2;
+    color: #f8edf7;
+}
+
+.gold {
+    color: #f8d4a8;
+}
+
+.quote {
+    color: #ffd4e8 !important;
+    font-size: 25px !important;
+    font-style: italic;
+    margin-top: 30px !important;
+}
+
+/* Image and video gallery */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.gallery img,
+.gallery video {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid rgba(255, 215, 235, .65);
+    box-shadow: 0 10px 25px rgba(0,0,0,.3);
+    background: #211936;
+    transition: .3s;
+}
+
+.gallery img:hover,
+.gallery video:hover {
+    transform: scale(1.025);
+}
+
+/* Music */
+
+.music-box {
+    max-width: 550px;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 22px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.3);
+}
+
+.music-box audio {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Ending */
+
+.ending-title {
+    font-size: clamp(35px, 7vw, 65px);
+    color: #ffe0ed;
+    text-shadow: 0 0 25px #e58ab8;
+    margin: 25px 0;
+}
+
+footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px 15px;
+    background: rgba(10, 8, 29, .8);
+    border-top: 1px solid rgba(255,255,255,.2);
+    line-height: 2;
+}
+
+footer h2 {
+    color: #ffd6e9;
+    font-size: 28px;
+}
+
+@media(max-width: 650px) {
+    header {
+        position: relative;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .hero {
+        min-height: 570px;
+    }
+
+    .card {
+        width: 92%;
+        padding: 30px 18px;
+    }
+
+    .card h2 {
+        font-size: 27px;
+    }
+
+    .card p {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="heartLayer"></div>
+
+<header>
+    <div class="logo">Sohaib <span>❤</span> Eshmal</div>
+
+    <nav>
+        <a href="#home">Shuruat</a>
+        <a href="#story">Hamari Kahani</a>
+        <a href="#special">Khaas Lamhe</a>
+        <a href="#sohaib">Sohaib</a>
+        <a href="#eshmal">Eshmal</a>
+        <a href="#memories">Yaadein</a>
+        <a href="#gallery">Tasveerein</a>
+        <a href="#ending">Aakhri Paigham</a>
+    </nav>
+</header>
+
+<!-- PAGE 1: HOME -->
+
+<section class="hero" id="home">
+
+    <div class="tagline">Ek khoobsurat rishte ke naam</div>
+
+    <h1>Sohaib <span>❤</span> Eshmal</h1>
+
+    <h2>Do Dil, Ek Khoobsurat Kahani</h2>
+
+    <p>
+        Kuch log zindagi mein aise aate hain jo har aam din ko
+        khaas bana dete hain. Unki muskurahat khushi ban jati hai
+        aur unka saath zindagi ka sab se pyara ehsaas.
+        Ye chhoti si website Sohaib aur Eshmal ke naam.
+    </p>
+
+    <img src="photo2.jpeg" class="hero-image"
+         alt="Sohaib aur Eshmal ki tasveer">
+
+    <a href="#story" class="button">Hamari Kahani Dekhein ❤</a>
+
+</section>
+
+<!-- PAGE 2: STORY -->
+
+<section class="card" id="story">
+
+    <h2>Hamari Khoobsurat Kahani</h2>
+
+    <p>
+        Har kahani ka ek khoobsurat aaghaz hota hai.
+        Kuch mulaqatein aur kuch yaadein waqt ke saath
+        dil ke bohat qareeb ho jati hain.
+    </p>
+
+    <p>
+        Sohaib aur Eshmal ke naam se judi ye kahani bhi
+        pyare ehsaas, muskurahaton, izzat aur bharose ka
+        ek khoobsurat safar hai.
+    </p>
+
+    <p>
+        Zindagi ka asal husn tab hai jab log ek doosre ko
+        samjhein, ek doosre ki khushi ka khayal rakhein
+        aur mushkil waqt mein bhi achhe alfaaz aur izzat
+        ke saath saath dein.
+    </p>
+
+    <p class="quote">
+        "Kuch rishte lafzon se nahi, achhe ehsaason se bante hain." ❤
+    </p>
+
+</section>
+
+<!-- PAGE 3: SPECIAL MOMENTS -->
+
+<section class="card" id="special">
+
+    <h2>Khaas Lamhe Aur Khoobsurat Ehsaas</h2>
+
+    <p>
+        Zindagi mein har din ek jaisa nahi hota,
+        lekin kuch lamhe aise hote hain jo hamesha
+        yaad rehte hain.
+    </p>
+
+    <p>
+        Ek pyari si muskurahat, ek achha paigham,
+        ek doosre ki fikr aur chhoti chhoti khushiyan
+        kisi bhi rishte ko khoobsurat bana deti hain.
+    </p>
+
+    <p>
+        Dua hai ke Sohaib aur Eshmal ki zindagi mein
+        aise hi bohat se khushgawar lamhe aate rahein.
+    </p>
+
+    <p class="quote">
+        "Khushi chhoti ho ya bari, apnon ke saath ho to khaas hoti hai."
+    </p>
+
+</section>
+
+<!-- PAGE 4: SOHAIB -->
+
+<section class="card" id="sohaib">
+
+    <h2>Sohaib Ke Naam</h2>
+
+    <img src="photo1.jpeg" class="hero-image"
+         alt="Sohaib ki tasveer">
+
+    <p>
+        Sohaib, zindagi ka khoobsurat hona sirf bari khushiyon
+        par nahi hota, balkeh roz ke chhote chhote achhe
+        lamhon se bhi hota hai.
+    </p>
+
+    <p>
+        Hamesha apne alfaaz mein narmi, apne rawaiye mein
+        izzat aur apne rishton mein sachai rakhna.
+    </p>
+
+    <p>
+        Allah Pak tumhari zindagi ko kamyabi, sukoon
+        aur behtareen mauqon se bhar de. Ameen.
+    </p>
+
+</section>
+
+<!-- PAGE 5: ESHMAL -->
+
+<section class="card" id="eshmal">
+
+    <h2>Eshmal Ke Naam</h2>
+
+    <img src="photo3.jpeg" class="hero-image"
+         alt="Eshmal ki tasveer">
+
+    <p>
+        Eshmal, tumhari zindagi ka har naya din umeed,
+        khushi aur khoobsurat muskurahaton se bhara rahe.
+    </p>
+
+    <p>
+        Hamesha apni qeemat ko samajhna, apne khwabon
+        ko ahmiyat dena aur apne aas paas khushiyan
+        phailate rehna.
+    </p>
+
+    <p>
+        Allah Pak tumhein har qadam par kamyabi,
+        izzat aur sukoon ata farmaye. Ameen.
+    </p>
+
+</section>
+
+<!-- PAGE 6: MEMORIES -->
+
+<section class="card" id="memories">
+
+    <h2>Yaadon Ka Khoobsurat Safar</h2>
+
+    <p>
+        Kuch yaadein waqt guzarne ke baad bhi dil mein
+        apni jagah banaye rakhti hain.
+    </p>
+
+    <p>
+        Tasveerein, pyari baatein, hansi ke lamhe aur
+        chhoti chhoti khushiyan zindagi ka khoobsurat
+        hissa ban jati hain.
+    </p>
+
+    <p>
+        Dua hai ke Sohaib aur Eshmal ko zindagi mein
+        aise bohat se achhe lamhe naseeb hon jinhein
+        yaad karke hamesha khushi mehsoos ho.
+    </p>
+
+    <img src="photo4.jpeg" class="hero-image"
+         alt="Ek khoobsurat yaad">
+
+</section>
+
+<!-- PAGE 7: GALLERY -->
+
+<section class="card" id="gallery">
+
+    <h2>Hamari Tasveerein Aur Videos</h2>
+
+    <p>
+        Yahan apni pasandeeda tasveerein aur videos laga sakte hain.
+        Har tasveer ek yaad aur har video ek khaas lamha hai.
+    </p>
+
+    <div class="gallery">
+
+        <img src="photo5.jpeg" alt="Tasveer 1">
+
+        <img src="photo6.jpeg" alt="Tasveer 2">
+
+        <img src="photo7.jpeg" alt="Tasveer 3">
+
+        <img src="photo8.jpeg" alt="Tasveer 4">
+
+        <video controls>
+            <source src="video1.mp4" type="video/mp4">
+            Aapka browser video nahi chala sakta.
+        </video>
+
+        <video controls>
+            <source src="video2.mp4" type="video/mp4">
+            Aapka browser video nahi chala sakta.
+        </video>
+
+    </div>
+
+</section>
+
+<!-- SONG -->
+
+<section class="card">
+
+    <h2>Hamare Naam Ek Dhun 🎵</h2>
+
+    <p>
+        Ek khoobsurat gana, ek pyara ehsaas aur ek yaadgaar lamha.
+    </p>
+
+    <div class="music-box">
+
+        <p class="gold">Hamari Pasandeeda Dhun</p>
+
+        <audio controls>
+            <source src="song.mp3" type="audio/mpeg">
+            Aapka browser audio nahi chala sakta.
+        </audio>
+
+    </div>
+
+</section>
+
+<!-- PAGE 8: ENDING -->
+
+<section class="card" id="ending">
+
+    <div class="tagline">Ek khoobsurat paigham</div>
+
+    <h2 class="ending-title">Sohaib ❤ Eshmal</h2>
+
+    <p>
+        Zindagi ka safar bohat khoobsurat hota hai jab
+        us mein achhe log, pyari yaadein aur behtareen
+        duaen shamil hon.
+    </p>
+
+    <p>
+        Hamesha ek doosre ki izzat karna, ek doosre ki
+        baat samajhna aur har achhe kaam mein ek doosre
+        ki himmat barhana.
+    </p>
+
+    <p>
+        Allah Pak tum dono ki zindagi mein khushiyan,
+        kamyabi, sehat aur sukoon ata farmaye.
+        Har buri nazar se mehfooz rakhe. Ameen.
+    </p>
+
+    <h2 class="gold">Hamesha Khush Raho ❤️</h2>
+
+    <p class="quote">
+        "Kuch naam dil mein khaas jagah rakhte hain."
+    </p>
+
+</section>
+
+<footer>
+
+    <h2>Sohaib ❤ Eshmal</h2>
+
+    <p>Ek khoobsurat kahani, pyare ehsaas aur achhi duaon ke naam.</p>
+
+    <p>Allah Pak hamesha khushiyan naseeb farmaye. Ameen.</p>
+
+</footer>
+
+<script>
+
+// Animated floating hearts
+
+const heartLayer = document.getElementById("heartLayer");
+
+function makeHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random() * 100 + "%";
+
+    heart.style.fontSize =
+        (14 + Math.random() * 28) + "px";
+
+    heart.style.animationDuration =
+        (7 + Math.random() * 9) + "s";
+
+    heartLayer.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 17000);
+}
+
+setInterval(makeHeart, 400);
+
+</script>
+
+</body>
+</html>
